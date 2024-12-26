@@ -42,7 +42,22 @@ public class PeliculaWebService {
 		imp.guardar(peliculas);
 	}
 	
-
+//http://localhost:9000/PeliculaWebService/buscar
+	@PostMapping(path = "buscar")
+	public Pelicula buscar(@RequestBody Pelicula peliculas) {
+		return imp.buscar(peliculas.getIdPelicula());
+	}
+	
+	//http://localhost:9000/PeliculaWebService/editar
+	@PostMapping(path = "editar")
+	public void editar(@RequestBody Pelicula peliculas) {
+		imp.editar(peliculas);
+	}
+	//http://localhost:9000/PeliculaWebService/eliminar
+	@PostMapping(path = "eliminar")
+	public void eliminar(@RequestBody Pelicula peliculas) {
+		imp.eliminar(peliculas.getIdPelicula());
+	}
 }
 
 

@@ -30,22 +30,24 @@ public class PeliculaServImp implements PeliculaServ{
 		dao.save(peliculas);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
 	public Pelicula buscar(int idPelicula) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.findById(idPelicula).orElse(null);
 	}
 
+	@Transactional
 	@Override
 	public void editar(Pelicula peliculas) {
 		// TODO Auto-generated method stub
-		
+		dao.save(peliculas);
 	}
-
+@Transactional
 	@Override
 	public void eliminar(int idPelicula) {
 		// TODO Auto-generated method stub
-		
+		dao.deleteById(idPelicula);
 	}
 	
 	
