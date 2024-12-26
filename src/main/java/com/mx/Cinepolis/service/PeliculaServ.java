@@ -1,8 +1,9 @@
-package com.mxCinepolis.service;
+package com.mx.Cinepolis.service;
 //aqui es como el de metodos interface, se crean los metodos o funciones
 
 import java.util.List;
-import com.mxCinepolis.model.Pelicula;
+
+import com.mx.Cinepolis.model.Pelicula;
 
 public interface PeliculaServ {
 	

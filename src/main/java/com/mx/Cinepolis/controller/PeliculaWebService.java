@@ -1,4 +1,4 @@
-package com.mxCinepolis.controller;
+package com.mx.Cinepolis.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,20 +9,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mxCinepolis.model.Pelicula;
-import com.mxCinepolis.service.PeliculaServImp;
-
-//@RestController //Nos permite marca como controlador de Solicitudes para crear web service de tipo Rest--json
-//@RequestMapping //Nos permite asignar solicitudes web a los entornos de Spring -- para formas nuestros recursos, url, endpoint
-//@CrossOrigin // Nos sirve para que nuestra aplicacion  no sea bloqueada por el navegador
+import com.mx.Cinepolis.model.Pelicula;
+import com.mx.Cinepolis.service.PeliculaServImp;
 
 @RestController
 @RequestMapping(path = "PeliculaWebService")
 @CrossOrigin
-
 public class PeliculaWebService {
 
-	//aqui en la web Service van las Peticiones
 	@Autowired
 	PeliculaServImp imp; //invocamos al implements (metodos) y generamos variable imp
 	

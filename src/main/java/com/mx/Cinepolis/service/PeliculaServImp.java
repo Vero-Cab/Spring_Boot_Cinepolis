@@ -1,4 +1,4 @@
-package com.mxCinepolis.service;
+package com.mx.Cinepolis.service;
 
 import java.util.List;
 
@@ -6,17 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.mxCinepolis.dao.PeliculaDao;
-import com.mxCinepolis.model.Pelicula;
+import com.mx.Cinepolis.dao.PeliculaDao;
+import com.mx.Cinepolis.model.Pelicula;
 
-//SE AGREGSA EL ESTEREOTIPO O NOTACION PARA INDICAR QUE VAMOS A REAKIZAR UN SERVICIO
 @Service
 public class PeliculaServImp implements PeliculaServ{
 	
-	//LA INYECCION DE DEPENDENCIAS	
-	@Autowired //nos permote tener un mejor control de los objetos que se inicializan
-	PeliculaDao dao; //es como instanciar la clase, tener acceso a todo lo que tenga la dependencia
-		
+
+	@Autowired 
+	PeliculaDao dao;
+	
 	@Transactional(readOnly = true) //sololectura
 	@Override
 	public List<Pelicula> listar() {
