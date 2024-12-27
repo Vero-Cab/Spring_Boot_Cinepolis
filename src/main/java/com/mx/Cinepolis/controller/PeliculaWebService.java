@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mx.Cinepolis.model.Pelicula;
 import com.mx.Cinepolis.service.PeliculaServImp;
+
 
 @RestController
 @RequestMapping(path = "PeliculaWebService")
@@ -58,6 +60,22 @@ public class PeliculaWebService {
 	public void eliminar(@RequestBody Pelicula peliculas) {
 		imp.eliminar(peliculas.getIdPelicula());
 	}
+	//http://localhost:9000/PeliculaWebService/buscarXnombre
+@PostMapping(path = "buscarXnombre")
+public List<Pelicula> buscarXnombre(@RequestBody Pelicula peliculas){
+	return imp.buscarXnombre(peliculas.getNombre());
+}
+//http://localhost:9000/PeliculaWebService/{precio}
+	@GetMapping(path = "/{precio}")
+	public List<Pelicula>buscarXprecio(@PathVariable ("precio")float precio){
+		return imp.buscaXprecio(precio);
+	}
+	//http://localhost:9000/PeliculaWebService/buscarXprecio
+	@PostMapping(path = "buscarXprecio")
+	public List<Pelicula> buscarXprecio(@RequestBody Pelicula peliculas){
+		return imp.buscaXprecio(peliculas.getPrecio());
+	}
+	
 }
 
 

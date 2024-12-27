@@ -1,5 +1,6 @@
 package com.mx.Cinepolis.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +50,40 @@ public class PeliculaServImp implements PeliculaServ{
 		// TODO Auto-generated method stub
 		dao.deleteById(idPelicula);
 	}
+
+@Transactional(readOnly = true) //solo lectura
+@Override
+public List<Pelicula> buscarXnombre(String nombre) {
+	// TODO Auto-generated method stub
+	return dao.findByNombre(nombre);
+}
+@Transactional(readOnly = true)// solo lectura
+@Override
+public List<Pelicula> buscaXprecio(Float precio) {
+	// TODO Auto-generated method stub
+	
+	//Registros BD
+	//ciclo foreach para recorrer esos registros
+	//if
+	
+	List<Pelicula> nuevaList = new ArrayList<>();
+	//== se utiliza para comparar valores numericos siempre y cuando no esten parseados
+	//.equals se utiliza para comparar cadenas y valores numericos parseados
+	for (Pelicula p: dao.findAll()) {
+		if (p.getPrecio().equals(precio)) {
+			nuevaList.add(p);
+			
+			
+		}
+		
+	}
 	
 	
+	return nuevaList;
+}
+	
+	
+
 	
 
 }

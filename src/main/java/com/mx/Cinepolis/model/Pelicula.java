@@ -27,7 +27,7 @@ public class Pelicula{
 	private String genero; //no se parsea
 	
 	@Column(name="PRECIO", columnDefinition = "FLOAT", nullable = false)
-	private Float precio;  //ya se parseo con el tipo number a float tipos de datos con decimales
+	private Float precio;  // float tipos de datos con decimales parseado a Float
 	
 	
 	//@Column(name="ID_PELICULA"

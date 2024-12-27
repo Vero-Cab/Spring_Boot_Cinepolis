@@ -17,6 +17,12 @@ public interface PeliculaServ {
 	
 	public void eliminar(int idPelicula);
 	
+	public List<Pelicula> buscarXnombre(String nombre); //por resorte findBy
+	
+	public List<Pelicula> buscaXprecio (Float precio); //mi metodo de logica
+	
+	
+
 
 }
 
